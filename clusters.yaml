@@ -1,0 +1,7 @@
+- alias: hasura
+  config:
+    configmap: controller-conf
+    namespace: algal30-hasura
+  data: null
+  kubeContext: algal30
+  name: algal30

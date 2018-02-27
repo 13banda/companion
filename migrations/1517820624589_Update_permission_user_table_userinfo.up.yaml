@@ -1,0 +1,18 @@
+- args:
+    permission:
+      columns:
+      - id
+      - hasura_id
+      - name
+      - email
+      - gender
+      - profile_file_id
+      - age
+      - about_me
+      - city
+      filter:
+        hasura_id:
+          $eq: X-HASURA-USER-ID
+    role: user
+    table: userinfo
+  type: create_select_permission

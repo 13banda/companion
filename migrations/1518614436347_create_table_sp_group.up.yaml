@@ -1,0 +1,7 @@
+- args:
+    sql: CREATE TABLE "sp_group"("group_id" serial NOT NULL, "groupname" text NOT
+      NULL, "bill" integer NOT NULL, PRIMARY KEY ("group_id") )
+  type: run_sql
+- args:
+    name: sp_group
+  type: add_existing_table_or_view

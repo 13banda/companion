@@ -1,0 +1,7 @@
+- args:
+    sql: CREATE TABLE "userinvest"("group_id" integer NOT NULL, "user_id" integer
+      NOT NULL, PRIMARY KEY ("group_id","user_id") )
+  type: run_sql
+- args:
+    name: userinvest
+  type: add_existing_table_or_view
