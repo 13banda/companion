@@ -16,8 +16,28 @@ var server = require('http').Server(app);
 
 var io = require('socket.io')(server);
 
+
+router.use(morgan('dev'));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/public/index.html');
+});
+app.get('/socket.io/:filename', function(req, res){
+  res.sendFile(__dirname+'/socket.io/'+req.params.filename);
+});
+app.get('/:filename', function(req, res){
+  res.sendFile(__dirname + '/public/'+req.params.filename);
+});
+
+//app.use('/', hasuraRouter);
+
 // Routing
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 // Chatroom
 
@@ -81,16 +101,6 @@ io.on('connection', function (socket) {
   });
 });
 
-router.use(morgan('dev'));
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-
-app.use('/', hasuraRouter);
-
-
-app.listen(8080, function () {
+server.listen(8080, function () {
   console.log('Example app listening on port 8080!');
 });
