@@ -2,11 +2,8 @@ var express = require('express');
 var router = express.Router();
 var config = require('./config');
 var request = require('request');
-/*
-router.route("/").get(function (req, res) {
-  res.send('')
-});
-*/
+
+
 // like other user
 router.route("/like").post(function(req,res){
   console.log("are you see me.?")
